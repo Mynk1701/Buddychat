@@ -23,6 +23,7 @@ function ChatArea() {
   // const refresh = useSelector((state) => state.refreshKey);
   const { refresh, setRefresh } = useContext(myContext);
   const [loaded, setloaded] = useState(false);
+  const base_url="https://live-chat-app-backend-9.onrender.com/"
   const sendMessage = () => {
     // console.log("SendMessage Fired to", chat_id._id);
     const config = {
@@ -32,7 +33,7 @@ function ChatArea() {
     };
     axios
       .post(
-        "http://localhost:8080/message/",
+        "https://live-chat-app-backend-9.onrender.com/message/",
         {
           content: messageContent,
           chatId: chat_id,
@@ -55,7 +56,7 @@ function ChatArea() {
       },
     };
     axios
-      .get("http://localhost:8080/message/" + chat_id, config)
+      .get("https://live-chat-app-backend-9.onrender.com/message/" + chat_id, config)
       .then(({ data }) => {
         setAllMessages(data);
         setloaded(true);
